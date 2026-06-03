@@ -1,1 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Biblioteca Personal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
+    <header>
+        <h1>Gestor de Biblioteca Personal</h1>
+        <p>Administra tus libros, géneros y apuntes de lectura</p>
+    </header>
+
+    <main class="container">
+        
+        <section id="modulo-generos" class="card">
+            <h2>Gestión de Géneros Literarios</h2>
+            <form id="form-genero" class="form-group">
+                <input type="hidden" id="genero-id">
+                <input type="text" id="genero-nombre" placeholder="Nombre del género (ej. Fantasía)" required>
+                <div class="color-picker-wrapper">
+                    <label for="genero-color">Color identificador:</label>
+                    <input type="color" id="genero-color" value="#0ea5e9">
+                </div>
+                <button type="submit" id="btn-guardar-genero">Guardar Género</button>
+            </form>
+            
+            <div id="generos-lista" class="tags-container">
+                </div>
+        </section>
+
+        <section id="modulo-libros" class="card">
+            <h2>Mis Libros</h2>
+            <form id="form-libro" class="form-grid">
+                <input type="hidden" id="libro-id">
+                
+                <input type="text" id="libro-titulo" placeholder="Título del libro" required>
+                <input type="text" id="libro-autor" placeholder="Autor" required>
+                <input type="number" id="libro-anio" placeholder="Año de publicación" required>
+                <input type="number" id="libro-paginas" placeholder="Número de páginas" required>
+                
+                <select id="libro-estado" required>
+                    <option value="" disabled selected>Estado de lectura</option>
+                    <option value="por leer">Por leer</option>
+                    <option value="leyendo">Leyendo</option>
+                    <option value="terminado">Terminado</option>
+                </select>
+
+                <select id="libro-genero" required>
+                    <option value="" disabled selected>Selecciona un Género</option>
+                    </select>
+
+                <div class="form-actions">
+                    <button type="submit" id="btn-guardar-libro">Guardar Libro</button>
+                    <button type="button" id="btn-cancelar-libro" class="btn-secondary" style="display:none;">Cancelar Edición</button>
+                </div>
+            </form>
+
+            <div id="libros-container" class="grid-libros">
+                </div>
+        </section>
+
+        <section id="modulo-anotaciones" class="card" style="display: none;">
+            <h2>Anotaciones para: <span id="libro-activo-titulo">Ninguno</span></h2>
+            <input type="hidden" id="libro-activo-id">
+
+            <form id="form-anotacion" class="form-group">
+                <input type="hidden" id="anotacion-id">
+                <textarea id="anotacion-texto" placeholder="Escribe aquí tu nota, cita o pensamiento..." rows="3" required></textarea>
+                <input type="number" id="anotacion-pagina" placeholder="Página de referencia" required>
+                <button type="submit">Guardar Anotación</button>
+            </form>
+
+            <div id="anotaciones-lista" class="lista-anotaciones">
+                </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+    <script>
+        // Aquí irá tu código de JavaScript con las funciones CRUD y Axios
+    </script>
+</body>
+</html>
